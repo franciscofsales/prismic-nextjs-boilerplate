@@ -1,0 +1,4 @@
+{
+  "apiEndpoint": "https://next-poc-test.cdn.prismic.io/api/v2",
+  "gqlEndpoint": "https://next-poc-test.cdn.prismic.io/graphql"
+}
