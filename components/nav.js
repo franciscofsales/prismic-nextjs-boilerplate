@@ -1,56 +1,56 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import { Menu, Container, Image, Button } from "semantic-ui-react";
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+const fixedMenuStyle = {
+  backgroundColor: "transparent",
+  boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+  border: "none",
+  position: "absolute",
+  top: 0
+};
+
+const linkStyle = {
+  color: "white",
+  textTransform: "uppercase"
+};
+
+const buttonStyle = {
+  backgroundColor: "white",
+  color: "rgba(67, 206, 224,1)",
+  margin: "10px"
+};
 
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href='/'>
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+  <Menu borderless fixed="top" style={fixedMenuStyle}>
+    <Container>
+      <Menu.Menu position="left">
+        <Menu.Item>
+          <Image size="small" src="/static/logo.svg" />
+        </Menu.Item>
+      </Menu.Menu>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+      <Menu.Menu position="right">
+        <Menu.Item as="a" style={linkStyle}>
+          Insurance
+        </Menu.Item>
+        <Menu.Item as="a" style={linkStyle}>
+          Mortgage
+        </Menu.Item>
+        <Menu.Item as="a" style={linkStyle}>
+          Title
+        </Menu.Item>
+        <Menu.Item as="a" style={linkStyle}>
+          Resources
+        </Menu.Item>
+        <Menu.Item as="a" style={linkStyle}>
+          Our Difference
+        </Menu.Item>
+        <Menu.Item as="a" style={{ ...linkStyle, ...buttonStyle }}>
+          Contact Us
+        </Menu.Item>
+      </Menu.Menu>
+    </Container>
+  </Menu>
+);
 
-export default Nav
+export default Nav;
