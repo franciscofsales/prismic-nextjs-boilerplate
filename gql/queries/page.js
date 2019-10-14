@@ -4,12 +4,16 @@ const PageQuery = gql`
   query PageQuery($uid: String!) {
     page(lang: "en-us", uid: $uid) {
       title
-      stats {
-        title
-        body
-      }
       meta_title
       description
+      body {
+        ... on PageBodyStats {
+          fields {
+            value
+            label
+          }
+        }
+      }
       _meta {
         uid
       }

@@ -7,7 +7,7 @@ const Stats = props => (
       horizontal
       style={{ borderRadius: 0, margin: 0, border: 0, boxShadow: "none" }}
     >
-      {props.data.map((stat, index) => (
+      {props.data.fields.map((stat, index) => (
         <Segment
           key={`stat_${index}`}
           style={{
@@ -28,7 +28,7 @@ const Stats = props => (
                 fontSize: 40,
                 color: "rgba(67, 206, 224,1)"
               }}
-              content={stat.title}
+              content={stat.value}
             />
             <Header
               as="h3"
@@ -38,7 +38,7 @@ const Stats = props => (
                 lineHeight: 1.7,
                 fontSize: 16
               }}
-              content={stat.body}
+              content={stat.label}
             />
           </Container>
         </Segment>

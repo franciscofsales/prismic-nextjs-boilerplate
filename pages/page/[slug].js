@@ -6,6 +6,7 @@ import Jumbo from "../../components/jumbo";
 import client from "../../utils/prismic";
 import { Header } from "semantic-ui-react";
 import PageQuery from "../../gql/queries/page";
+import ComponentMatcher from "../../utils/component-matcher";
 
 const GenericPage = props => {
   if (!props.page) {
@@ -26,6 +27,10 @@ const GenericPage = props => {
       <Nav />
       <Jumbo />
       <Header as="h1">{props.page.data.page._meta.uid}</Header>
+      {props.page.data.page.body.map((slice, index) => {
+        const Component = ComponentMatcher(slice);
+        return <Component key={`slice-${index}`} data={slice} />;
+      })}
     </div>
   );
 };
