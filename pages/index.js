@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
 import Jumbo from "../components/jumbo";
-import Stats from "../components/stats";
 import client from "../utils/prismic";
 import HomepageQuery from "../gql/queries/homepage";
 
@@ -21,8 +20,6 @@ const Home = props => {
 
       <Nav />
       <Jumbo />
-
-      <Stats data={props.homepage.data.page.stats} />
     </div>
   );
 };
